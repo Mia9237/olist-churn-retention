@@ -85,12 +85,11 @@ RFM 特征工程 → 特征变换 → K-Means 四类用户分群与业务画像
 - 对 F、M 做 log1p 压缩长尾，标准化后聚类，结合业务得到 4 类客群；使用肘部法则确定聚类数量，轮廓系数评估聚类效果，PCA降维可视化聚类分布。
 
 <p align="center">
-  <img src="outputs/figures/elbow_method_plot.png" width="45%" />
-  <img src="outputs/figures/silhouette_score_plot.png" width="45%" />
+  <img src="olist_churn_retention/outputs/figures/elbow_method_plot.png" width="45%" />
+  <img src="olist_churn_retention/outputs/figures/silhouette_score_plot.png" width="45%" />
 </p>
-
 <p align="center">
-  <img src="outputs/figures/pca_cluster_scatter.png" width="70%" />
+  <img src="olist_churn_retention/outputs/figures/pca_cluster_scatter.png" width="70%" />
 </p>
 
 | 聚类 | 业务标签 | 人数 | 特征概要 |
@@ -118,8 +117,8 @@ RFM 特征工程 → 特征变换 → K-Means 四类用户分群与业务画像
 > 全量 AUC 受海量一次性购买用户稀释；在真实投放的高价值客群内 XGBoost 提升明显并反超逻辑回归，验证了选型。极端不平衡下不使用 accuracy 与虚高的 PR-AUC，主用 ROC-AUC、Macro-F1、Gain/Lift。
 
 <p align="center">
-  <img src="outputs/figures/xgb_feature_importance.png" width="45%" />
-  <img src="outputs/figures/xgb_lr_roc_auc.png" width="45%" />
+  <img src="olist_churn_retention/outputs/figures/xgb_feature_importance.png" width="45%" />
+  <img src="olist_churn_retention/outputs/figures/xgb_lr_roc_auc.png" width="45%" />
 </p>
 
 ### 3. 目标客群与营销策略
@@ -130,8 +129,8 @@ RFM 特征工程 → 特征变换 → K-Means 四类用户分群与业务画像
 - **敏感性分析**：盈亏平衡挽回率 = 券面额 /（客单 × 毛利率），10 元券仅需 41.7% 挽回率即回本；券面额与挽回率为 ROI 两大敏感因素，20 元券在各情景下均亏损，故选定 10 元面额，方案稳健。
 
 <p align="center">
-  <img src="outputs/figures/roi_coupon_recovery.png" width="45%" />
-  <img src="outputs/figures/tornado_roi_sensitivity.png" width="45%" />
+  <img src="olist_churn_retention/outputs/figures/roi_coupon_recovery.png" width="45%" />
+  <img src="olist_churn_retention/outputs/figures/tornado_roi_sensitivity.png" width="45%" />
 </p>
 
 ---
@@ -140,8 +139,9 @@ RFM 特征工程 → 特征变换 → K-Means 四类用户分群与业务画像
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/你的用户名/olist-churn-prediction.git
-cd olist-churn-prediction
+git clone https://github.com/Mia9237/olist-churn-retention.git
+cd olist-churn-retention
+
 
 # 2. 安装依赖
 pip install -r requirements.txt
